@@ -1,0 +1,51 @@
+<odoo>
+  <data>
+
+
+  <record id = "account_move_line_delivery" model = "ir.ui.view" > 
+           <field name="name">account.view.move.form.inherited</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name = "arch" type = "xml" > 
+               <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='quantity']" position="after">
+                <!-- <xpath expr = "//field [@name='invoice_line_ids']/tree/field[@name = 'quantity']" position = "after" >  -->
+                    <field name = "utilized_quantity" /> 
+                </xpath> 
+                
+            </field> 
+        </record> 
+
+
+  <record id="project_project_test" model="ir.ui.view">
+        <field name="name">project.project.extended</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="sale_timesheet.timesheet_plan"/>
+        <field name="arch" type="xml">
+          <xpath expr="//div[hasclass('o_profitability_section']//div//table//tbody" position="inside">
+              <tr>
+                <td>To invoice</td>
+              </tr>  
+            </xpath> 
+        </field>
+    </record>    
+
+   <!-- this my view try okaylet share in linked-->
+ 
+    <!-- Top menu item -->
+<!--
+    <menuitem name="project_sale" id="project_sale.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="project_sale.menu_1" parent="project_sale.menu_root"/>
+    <menuitem name="Menu 2" id="project_sale.menu_2" parent="project_sale.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="project_sale.menu_1_list" parent="project_sale.menu_1"
+              action="project_sale.action_window"/>
+    <menuitem name="Server to list" id="project_sale" parent="project_sale.menu_2"
+              action="project_sale.action_server"/>
+-->
+  </data>
+</odoo>
